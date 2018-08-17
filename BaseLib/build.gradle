@@ -1,0 +1,72 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion project.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion project.minSdkVersion
+        targetSdkVersion project.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility project.sourceCompatibility
+        targetCompatibility project.targetCompatibility
+    }
+}
+
+dependencies {
+//    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+
+    api commonDependencies.supportAppcompat
+    api commonDependencies.supportDesign
+    api commonDependencies.supportRecyclerView
+    api commonDependencies.supportCardView
+
+    api commonDependencies.kotlin
+    api commonDependencies.ankoV7
+    api commonDependencies.ankoV4
+    api commonDependencies.ankoLayoutSdk
+    api commonDependencies.anlaLayoutV7
+
+    api commonDependencies.rxKotlin
+    api commonDependencies.rxAndroid
+
+    api commonDependencies.okhttp
+    api commonDependencies.okhttpLogging
+    api commonDependencies.retrofit
+    api commonDependencies.retrofitGson
+    api commonDependencies.retrofitRx
+
+    api commonDependencies.dagger
+    kapt commonDependencies.daggerApt
+
+    api commonDependencies.glide
+    kapt commonDependencies.glideApt
+    api commonDependencies.glideOkHttp
+
+    api commonDependencies.rxlifecycleKotlin
+    api commonDependencies.rxlifecycleComponents
+
+}
+
+repositories {
+    mavenCentral()
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="ToolbarStyle" parent="Base.ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="GeneralToolbarStyle" parent="MatchWrap">
+        <item name="android:minHeight">?android:attr/actionBarSize</item>
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:theme">@style/ToolbarStyle</item>
+        <item name="popupTheme">@style/ToolbarStyle</item>
+        <item name="titleColor">@color/common_white</item>
+        <item name="titleGravity">center</item>
+        <item name="titleSize">16sp</item>
+    </style>
+
+</resources>

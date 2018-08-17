@@ -1,0 +1,144 @@
+ext {
+
+    //Java语言版本
+    javaVersion = 8
+    javaMaxHeapSzie = "4G"
+
+    //Android编译版本
+    compileSdkVersion = 27
+//    buildToolsVersion = '25.0.3'
+    minSdkVersion = 15
+    targetSdkVersion = 27
+
+
+    //混淆相关
+    minifyEnable = true
+    shrinkResEnable = minifyEnable
+
+    //JDK版本兼容
+    sourceCompatibility = this.&getJavaVersion()
+    targetCompatibility = this.&getJavaVersion()
+
+    version = [
+            supportLibrary : "27.1.1",
+            butterknife : "8.8.1",
+            okhttp: "3.10.0",
+            retrofit2: "2.4.0",
+            kotlin : "1.2.41",
+            anko : "0.10.5"
+    ]
+
+    //常用dependencies
+    commonDependencies = [
+            supportAnnotation      : "com.android.support:support-annotations:${version.supportLibrary}",
+            supportAppcompat       : "com.android.support:appcompat-v7:${version.supportLibrary}",
+            supportV4              : "com.android.support:support-v4:${version.supportLibrary}",
+            supportDesign          : "com.android.support:design:${version.supportLibrary}",
+            supportRecyclerView    : "com.android.support:recyclerview-v7:${version.supportLibrary}",
+            supportCardView        : "com.android.support:cardview-v7:${version.supportLibrary}",
+
+            // Kotlin系列
+            kotlin                 : "org.jetbrains.kotlin:kotlin-stdlib:${version.kotlin}",
+            ankoV7                 : "org.jetbrains.anko:anko-appcompat-v7-commons:${version.anko}",
+            ankoV4                 : "org.jetbrains.anko:anko-support-v4-commons:${version.anko}",
+            ankoLayoutSdk          : "org.jetbrains.anko:anko-sdk25:${version.anko}",
+            anlaLayoutV7           : "org.jetbrains.anko:anko-appcompat-v7:${version.anko}",
+
+            // 黄油刀
+            butterKnife            : "com.jakewharton:butterknife:${version.butterknife}",
+            butterKnifeApt         : "com.jakewharton:butterknife-compiler:${version.butterknife}",
+
+            // Square系列
+            okhttp                 : "com.squareup.okhttp3:okhttp:${version.okhttp}",
+            okhttpLogging          : "com.squareup.okhttp3:logging-interceptor:${version.okhttp}",
+            okhttpUrlConnection    : "com.squareup.okhttp3:okhttp-urlconnection:${version.okhttp}",
+            retrofit               : "com.squareup.retrofit2:retrofit:${version.retrofit2}",
+            retrofitGson           : "com.squareup.retrofit2:converter-gson:${version.retrofit2}",
+            retrofitScalars        : "com.squareup.retrofit2:converter-scalars:${version.retrofit2}",
+            retrofitXml            : ["com.squareup.retrofit2:converter-simplexml:${version.retrofit2}", {
+                exclude group: 'xpp3', module: 'xpp3'
+                exclude group: 'stax', module: 'stax-api'
+                exclude group: 'stax', module: 'stax'
+            }],
+            retrofitRx             : "com.squareup.retrofit2:adapter-rxjava2:${version.retrofit2}",
+            rxlifecycle            : "com.trello.rxlifecycle2:rxlifecycle:2.2.1",
+            rxlifecycleComponents  : "com.trello.rxlifecycle2:rxlifecycle-components:2.2.1",
+            rxlifecycleKotlin      : "com.trello.rxlifecycle2:rxlifecycle-kotlin:2.2.1",
+
+            // Rx系列
+            rxjava                 : "io.reactivex.rxjava2:rxjava:2.1.14",
+            rxKotlin               : "io.reactivex.rxjava2:rxkotlin:2.2.0",
+            rxAndroid              : "io.reactivex.rxjava2:rxandroid:2.0.2",
+            rxBinding              : "com.jakewharton.rxbinding2:rxbinding:2.1.1",
+
+            guava                  : "com.google.guava:guava:25.1-jre",
+
+            // 注入
+            dagger                 : "com.google.dagger:dagger:2.16",
+            daggerApt              : "com.google.dagger:dagger-compiler:2.16",
+
+            // Json解析
+            gson                   : "com.google.code.gson:gson:2.8.4",
+            fastjson               : "com.alibaba:fastjson:1.2.47",
+
+            // 图片相关
+            picasso                : "com.squareup.picasso:picasso:2.71828",
+            glide                  : "com.github.bumptech.glide:glide:4.7.1",
+            glideApt               : "com.github.bumptech.glide:compiler:4.7.1",
+            glideOkHttp            : "com.github.bumptech.glide:okhttp3-integration:4.7.1",
+            imageloader            : files('libs/universal-image-loader-1.9.5.jar'),
+            fresco                 : "com.facebook.fresco:fresco:1.9.0",
+
+            // 数据库
+            greendao               : "org.greenrobot:greendao:3.2.2",
+
+            // 事件
+            eventbus               : "org.greenrobot:eventbus:3.1.1",
+
+            zxing                  : "com.google.zxing:core:3.3.0",
+            umengAnalytic          : "com.umeng.analytics:analytics:latest.integration",
+
+            bnner                  : "com.youth.banner:banner:1.4.9",
+
+            // 6.0权限
+            permissionDispatcher   : ["com.github.hotchemi:permissionsdispatcher:2.4.0", {
+                // if you don't use android.app.Fragment you can exclude support for them
+                exclude module: "support-v13"
+            }],
+            permissionDispatcherApt: "com.github.hotchemi:permissionsdispatcher-processor:2.4.0",
+
+            xiaoMiPush             : files('libs/MiPush_SDK_Client_3_2_2.jar'),
+
+            // 图片选择
+            takePhoto              : "com.jph.takephoto:takephoto_library:4.0.3",
+            boxing                 : "com.bilibili:boxing:1.0.2",
+            boxingUI               : "com.bilibili:boxing-impl:1.0.2",
+
+            // 时间、地址等等三级联动选择器
+            pickerView             : "com.contrarywind:Android-PickerView:4.1.6",
+
+            // 翻书
+            pageFlip               : "com.github.eschao:android-PageFlip:1.0.2",
+
+            //节操视频
+            jiecaoVideo            : "fm.jiecao:jiecaovideoplayer:5.8.1",
+
+            //七牛云存储
+            qiniuSave              : "com.qiniu:qiniu-android-sdk:7.3.+"
+    ]
+
+
+}
+
+def getJavaVersion() {
+    switch (project.ext.javaVersion) {
+        case "6":
+            return JavaVersion.VERSION_1_6
+        case "7":
+            return JavaVersion.VERSION_1_7
+        case "8":
+            return JavaVersion.VERSION_1_8
+        default:
+            return JavaVersion.VERSION_1_6
+    }
+}
