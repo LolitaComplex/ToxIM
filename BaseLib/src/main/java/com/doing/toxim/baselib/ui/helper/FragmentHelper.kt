@@ -1,4 +1,4 @@
-package com.doing.toxim.baselib.helper
+package com.doing.toxim.baselib.ui.helper
 
 import android.support.annotation.IdRes
 import com.doing.toxim.baselib.ui.activity.BaseActivity

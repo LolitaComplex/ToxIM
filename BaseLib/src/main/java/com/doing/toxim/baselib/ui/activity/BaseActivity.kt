@@ -1,12 +1,11 @@
 package com.doing.toxim.baselib.ui.activity
 
 import android.os.Bundle
-import android.support.annotation.IdRes
 import android.support.annotation.LayoutRes
 import android.support.v7.app.ActionBar
 import android.view.Menu
 import com.doing.toxim.baselib.common.AppManager
-import com.doing.toxim.baselib.helper.FragmentHelper
+import com.doing.toxim.baselib.ui.helper.FragmentHelper
 import com.doing.toxim.baselib.ui.fragment.BaseFragment
 import com.doing.toxim.baselib.ui.widget.GeneralToolbar
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity
