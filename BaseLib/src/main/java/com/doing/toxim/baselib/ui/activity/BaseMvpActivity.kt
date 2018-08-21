@@ -21,7 +21,6 @@ abstract class BaseMvpActivity<T: BasePresenter<*>> : BaseActivity(), BaseView {
     @Inject
     protected lateinit var mContext: Context
 
-
     private lateinit var mLoadProgressDialog: ProgressDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {

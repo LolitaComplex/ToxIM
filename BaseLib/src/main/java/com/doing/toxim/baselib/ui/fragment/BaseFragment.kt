@@ -9,20 +9,35 @@ import com.trello.rxlifecycle2.components.support.RxFragment
 
 abstract class BaseFragment : RxFragment() {
 
+    private var mContainer: View? = null
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(getLayoutId(), container, false)
+        if (mContainer == null) {
+            val view = inflater.inflate(getLayoutId(), container, false)
+            initView(view)
+            mContainer = view
+        } else {
+            if (mContainer!!.parent != null) {
+                (mContainer!!.parent as ViewGroup).removeView(mContainer!!)
+            }
+        }
+        return mContainer
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         injection()
-        initView()
     }
+
+    fun onBackPressed(): Boolean {
+        return false
+    }
+
 
     // ============== 模板方法 ==================
     @LayoutRes
     abstract fun getLayoutId(): Int
     protected abstract fun injection()
-    protected abstract fun initView()
+    protected abstract fun initView(container: View)
 }
