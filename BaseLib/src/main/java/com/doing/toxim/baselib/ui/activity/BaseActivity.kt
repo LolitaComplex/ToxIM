@@ -72,8 +72,8 @@ abstract open class BaseActivity: RxAppCompatActivity(){
     // ============== 模板方法 ==================
     @LayoutRes
     protected abstract fun getLayoutId(): Int
-    protected abstract fun injection()
     protected abstract fun initView()
 
+    protected open fun injection(){}
     protected open fun initActionBar(actionBar: ActionBar) {}
 }

@@ -1,0 +1,9 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="TransStatusBar" parent="AppTheme">
+        <!-- Customize your theme here. -->
+        <item name="android:statusBarColor">@null</item>
+    </style>
+
+</resources>

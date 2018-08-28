@@ -2,12 +2,15 @@ package com.doing.toxim.baselib.ui.widget
 
 import android.content.Context
 import android.content.res.ColorStateList
+import android.graphics.Color
+import android.os.Handler
 import android.support.v7.widget.Toolbar
 import android.text.TextUtils
 import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.Gravity
 import android.widget.TextView
+import android.widget.Toast
 import com.doing.toxim.baselib.R
 import com.doing.toxim.baselib.utils.DensityUtils
 import com.doing.toxim.baselib.utils.ToastUtil
@@ -47,6 +50,17 @@ class GeneralToolbar constructor(context: Context, attrs:  AttributeSet?, defSty
 //        this.setContentInsetsAbsolute(0, 0)
         this.fitsSystemWindows = true
 
+
+        Handler().postDelayed({
+            mTvTitle?.gravity = Gravity.CENTER
+            mTvTitle?.setTextSize(TypedValue.COMPLEX_UNIT_SP, 25.0f)
+            setBackgroundColor(Color.RED)
+            val params = mTvTitle?.layoutParams as Toolbar.LayoutParams
+            params.gravity = Gravity.BOTTOM
+            mTvTitle?.fitsSystemWindows = true
+            ToastUtil.show("高度" + DensityUtils.px2dip(height * 1.0f))
+            requestLayout()
+        }, 300)
     }
 
     /**

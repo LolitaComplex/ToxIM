@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="73dp"
+        android:background="@drawable/bg_src_morning"
+        android:elevation="2dp"
+        android:paddingTop="25dp"
+        android:outlineProvider="bounds"
+        android:fitsSystemWindows="true"
+        tools:targetApi="lollipop">
+
+        <!--<FrameLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_marginTop="25dp"-->
+        <!--&gt;-->
+
+        <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:textSize="16sp"-->
+        <!--android:textColor="@color/common_white"-->
+        <!--android:text="Active"-->
+        <!--/>-->
+        <!--</FrameLayout>-->
+
+        <com.doing.toxim.baselib.ui.widget.GeneralToolbar
+            android:id="@+id/mToolbar"
+            style="@style/GeneralToolbarStyle"
+            android:background="@android:color/transparent"
+            app:commonTitle="Active"
+            android:fitsSystemWindows="true"
+            />
+
+    </android.support.design.widget.AppBarLayout>
+
+
+    <FrameLayout
+        android:id="@+id/mContainer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/common_gray" />
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/navigation"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_gravity="bottom"
+        android:background="@color/common_white"
+        android:elevation="4dp"
+        android:outlineProvider="bounds"
+        android:translationZ="8dp"
+        app:itemIconTint="@color/text_nav"
+        app:itemTextColor="@color/text_nav"
+        app:menu="@menu/navigation_items"
+        tools:targetApi="lollipop"
+        tools:visibility="invisible" />
+
+</android.support.design.widget.CoordinatorLayout>
