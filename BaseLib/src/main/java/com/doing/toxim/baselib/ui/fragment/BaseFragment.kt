@@ -1,5 +1,6 @@
 package com.doing.toxim.baselib.ui.fragment
 
+import android.content.Context
 import android.os.Bundle
 import android.support.annotation.LayoutRes
 import android.view.LayoutInflater
@@ -10,6 +11,12 @@ import com.trello.rxlifecycle2.components.support.RxFragment
 abstract class BaseFragment : RxFragment() {
 
     private var mContainer: View? = null
+    protected lateinit var mContext: Context
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        mContext = context
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         if (mContainer == null) {

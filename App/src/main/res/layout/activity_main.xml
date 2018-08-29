@@ -4,41 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".ui.activity.MainActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="73dp"
         android:background="@drawable/bg_src_morning"
         android:elevation="2dp"
-        android:paddingTop="25dp"
         android:outlineProvider="bounds"
-        android:fitsSystemWindows="true"
+        android:paddingTop="25dp"
         tools:targetApi="lollipop">
-
-        <!--<FrameLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:layout_marginTop="25dp"-->
-        <!--&gt;-->
-
-        <!--<TextView-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_gravity="center"-->
-        <!--android:textSize="16sp"-->
-        <!--android:textColor="@color/common_white"-->
-        <!--android:text="Active"-->
-        <!--/>-->
-        <!--</FrameLayout>-->
 
         <com.doing.toxim.baselib.ui.widget.GeneralToolbar
             android:id="@+id/mToolbar"
             style="@style/GeneralToolbarStyle"
             android:background="@android:color/transparent"
             app:commonTitle="Active"
-            android:fitsSystemWindows="true"
-            />
+            app:menu="@menu/toolbar_main_item">
+
+            <ImageView
+                android:id="@+id/mIvUserIcon"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="start|center_vertical"
+                android:layout_margin="4dp"
+                android:padding="4dp" />
+        </com.doing.toxim.baselib.ui.widget.GeneralToolbar>
 
     </android.support.design.widget.AppBarLayout>
 
@@ -46,12 +37,12 @@
     <FrameLayout
         android:id="@+id/mContainer"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@color/common_gray" />
+        android:layout_height="match_parent"
+        android:layout_marginBottom="52dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
     <android.support.design.widget.BottomNavigationView
-        android:id="@+id/navigation"
+        android:id="@+id/mBottomNavigation"
         android:layout_width="match_parent"
         android:layout_height="52dp"
         android:layout_gravity="bottom"
@@ -59,10 +50,10 @@
         android:elevation="4dp"
         android:outlineProvider="bounds"
         android:translationZ="8dp"
+        app:itemBackground="@drawable/ripple_touch_nav"
         app:itemIconTint="@color/text_nav"
         app:itemTextColor="@color/text_nav"
-        app:menu="@menu/navigation_items"
-        tools:targetApi="lollipop"
-        tools:visibility="invisible" />
+        app:menu="@menu/navigation_main_items"
+        tools:targetApi="lollipop" />
 
 </android.support.design.widget.CoordinatorLayout>
