@@ -1,5 +1,6 @@
 package com.doing.toxim.baselib.ui.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.annotation.LayoutRes
 import android.support.v7.app.ActionBar
@@ -26,14 +27,18 @@ abstract open class BaseActivity: RxAppCompatActivity(){
         super.onCreate(savedInstanceState)
         AppManager.sInstance.addActivity(this)
 
-        setContentView(getLayoutId())
-        injection()
-        initView()
+        if (initArgs(intent)) {
+            setContentView(getLayoutId())
+            injection()
+            initView()
 
-        mToolbar?.let {
-            setSupportActionBar(mToolbar)
-            supportActionBar!!.setDisplayShowTitleEnabled(false)
-            initActionBar(supportActionBar!!)
+            mToolbar?.let {
+                setSupportActionBar(mToolbar)
+                supportActionBar!!.setDisplayShowTitleEnabled(false)
+                initActionBar(supportActionBar!!)
+            }
+        } else {
+            finish()
         }
     }
 
@@ -70,10 +75,31 @@ abstract open class BaseActivity: RxAppCompatActivity(){
     }
 
     // ============== 模板方法 ==================
+    /**
+     * 获取布局Xml的Id
+     */
     @LayoutRes
     protected abstract fun getLayoutId(): Int
+
+    /**
+     * 初始化布局内容
+     */
     protected abstract fun initView()
 
+    /**
+     * 使用Dagger做注入
+     */
     protected open fun injection(){}
+
+    /**
+     * 初始化参数
+     */
+    protected fun initArgs(intent: Intent): Boolean {
+        return true
+    }
+
+    /**
+     * 初始化ActionBar
+     */
     protected open fun initActionBar(actionBar: ActionBar) {}
 }

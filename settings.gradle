@@ -1,1 +1,1 @@
-include ':BaseLib', ':Provider', ':App'
+include ':BaseLib', ':Provider', ':App', ':Lang'

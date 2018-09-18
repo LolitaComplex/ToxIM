@@ -1,8 +1,4 @@
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
-apply plugin: 'kotlin-kapt'
-
+apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion project.compileSdkVersion
@@ -10,7 +6,6 @@ android {
 
 
     defaultConfig {
-        applicationId "com.doing.toxim.app"
         minSdkVersion project.minSdkVersion
         targetSdkVersion project.targetSdkVersion
         versionCode 1
@@ -30,12 +25,7 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-
-    api project(':Provider')
-    api project(':Lang')
-
 }

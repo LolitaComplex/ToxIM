@@ -1,5 +1,6 @@
 package com.doing.toxim.app.ui.activity
 
+import android.view.MenuItem
 import com.doing.toxim.app.R
 import com.doing.toxim.app.ui.fragment.ContactFragment
 import com.doing.toxim.app.ui.fragment.GroupFragment
@@ -8,6 +9,7 @@ import com.doing.toxim.baselib.ui.activity.BaseActivity
 import com.doing.toxim.baselib.ui.helper.NavHelper
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.find
+import org.jetbrains.anko.startActivity
 
 class MainActivity : BaseActivity() {
 
@@ -33,6 +35,16 @@ class MainActivity : BaseActivity() {
             mToolbar?.setGeneralTitle(newTab.extra)
         }
         mNavHelper.performClickMenu(R.id.action_home)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when (item?.itemId) {
+            R.id.main_search -> {
+                startActivity<SearchActivity>(
+                        SearchActivity.SEARCH_TYPE to SearchActivity.TYPE_PERSON)
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
 
